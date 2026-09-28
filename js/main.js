@@ -14,7 +14,7 @@
   /* ---------- utilidades que não dependem de animação ---------- */
 
   // Links de WhatsApp com mensagem específica (data-wa="mensagem")
-  const WA_NUMBER = '551124287118';
+  const WA_NUMBER = '5511915978283';
   $$('[data-wa]').forEach((a) => {
     const msg = a.getAttribute('data-wa');
     if (msg) a.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
