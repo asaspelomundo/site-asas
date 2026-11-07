@@ -13,7 +13,7 @@
   --teal-ink: #2f6b7a;      /* teal escurecido para texto sobre fundo claro (contraste AA) */
   --turq: #59b7c0;
   --gold: #f4b625;
-  --red: #ef4444;
+  --red: #f66a6a; /* contraste mínimo de 4,5:1 sobre todos os azuis do site */
   --ink: #23515c;
   --mist: #eff4f5;
   --white: #fff;
@@ -557,7 +557,7 @@ details[open] > summary i { transform: rotate(45deg); opacity: 1; }
 .social a { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line-strong); border-radius: 50%; color: #fff; transition: background-color .5s var(--ease), color .5s var(--ease), border-color .5s var(--ease); }
 .social a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
 .social svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.footer h4 { margin-bottom: 1.4rem; font: 500 .74rem/1 var(--font-head); letter-spacing: .24em; text-transform: uppercase; color: var(--turq); }
+.footer h2 { margin-bottom: 1.4rem; font: 500 .74rem/1 var(--font-head); letter-spacing: .24em; text-transform: uppercase; color: var(--turq); }
 .footer__col { display: flex; flex-direction: column; align-items: flex-start; gap: .7rem; }
 .footer__col a { color: var(--text); text-decoration: none; font-size: .95rem; transition: color .4s ease; }
 .footer__col a:hover { color: #fff; }
