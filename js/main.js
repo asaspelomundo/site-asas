@@ -236,37 +236,73 @@
     });
   }
 
+  // Animações de entrada: tocam quando o elemento aparece na tela. O que já ficou acima
+  // da tela (página aberta mais abaixo ao voltar de outra página ou recarregar, ou um
+  // pulo longo por link do menu) aparece pronto, sem animação. Nenhum conteúdo fica escondido.
+  const pending = new Map(); // elemento → função que o mostra (animate: true/false)
+  const done = (el, animate) => {
+    const show = pending.get(el);
+    if (!show) return;
+    pending.delete(el);
+    seenIO.unobserve(el);
+    show(animate);
+  };
+  const seenIO = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (e.isIntersecting) done(e.target, true);
+    else if (e.boundingClientRect.top < 0) done(e.target, false);
+  }), { rootMargin: '0px 0px -10% 0px' });
+  let checking = false;
+  const showSkipped = () => {
+    checking = false;
+    pending.forEach((_, el) => { if (el.getBoundingClientRect().bottom < 0) done(el, false); });
+  };
+  window.addEventListener('scroll', () => {
+    if (!checking && pending.size) { checking = true; requestAnimationFrame(showSkipped); }
+  }, { passive: true });
+  const whenSeen = (el, show) => { pending.set(el, show); seenIO.observe(el); };
+
   // títulos por linha (rápido, dispara cedo)
   if (window.SplitText) {
     $$('.split').forEach((el) => {
+      let seen = false;
+      let tween = null;
       SplitText.create(el, {
         type: 'lines',
         mask: 'lines',
         autoSplit: true,
-        onSplit: (self) => gsap.from(self.lines, {
-          yPercent: 110,
-          duration: 0.9,
-          ease: 'expo.out',
-          stagger: 0.07,
-          scrollTrigger: { trigger: el, start: 'top 92%', once: true },
-        }),
+        onSplit: (self) => {
+          if (seen) return undefined; // já apareceu: se as linhas forem refeitas, ficam visíveis
+          tween = gsap.from(self.lines, { yPercent: 110, duration: 0.9, ease: 'expo.out', stagger: 0.07, paused: true });
+          return tween;
+        },
+      });
+      whenSeen(el, (animate) => {
+        seen = true;
+        if (tween) animate ? tween.play() : tween.progress(1);
       });
     });
   }
 
-  // elementos que surgem
-  gsap.set('[data-reveal]', { y: 26, autoAlpha: 0 });
-  ScrollTrigger.batch('[data-reveal]', {
-    start: 'top 94%',
-    once: true,
-    onEnter: (b) => gsap.to(b, { y: 0, autoAlpha: 1, duration: 0.8, ease: 'expo.out', stagger: 0.06, overwrite: true }),
-  });
+  // elementos que surgem (os que aparecem juntos entram em sequência)
+  const reveals = $$('[data-reveal]');
+  gsap.set(reveals, { y: 26, autoAlpha: 0 });
+  let revealBatch = [];
+  const flushReveals = () => {
+    gsap.to(revealBatch, { y: 0, autoAlpha: 1, duration: 0.8, ease: 'expo.out', stagger: 0.06, overwrite: true });
+    revealBatch = [];
+  };
+  reveals.forEach((el) => whenSeen(el, (animate) => {
+    if (!animate) { gsap.set(el, { y: 0, autoAlpha: 1 }); return; }
+    if (!revealBatch.length) queueMicrotask(flushReveals);
+    revealBatch.push(el);
+  }));
 
   // imagens com cortina
   $$('[data-clip]').forEach((el) => {
-    const tl = gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 88%', once: true } })
+    const tl = gsap.timeline({ paused: true })
       .fromTo(el, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.2, ease: 'expo.inOut' });
     if (!el.querySelector('.swap-img')) tl.from($('img', el), { scale: 1.25, duration: 1.6, ease: 'expo.out' }, '<0.1');
+    whenSeen(el, (animate) => (animate ? tl.play() : tl.progress(1)));
   });
 
   // parallax suave
@@ -283,19 +319,29 @@
 
   // valores
   $$('.value').forEach((v) => {
-    gsap.timeline({ scrollTrigger: { trigger: v, start: 'top 90%', once: true } })
+    const tl = gsap.timeline({ paused: true })
       .from($('.value__line', v), { scaleX: 0, duration: 1.2, ease: 'expo.inOut' })
       .from($('.value__word > span', v), { yPercent: 110, duration: 1, ease: 'expo.out' }, '-=0.8')
       .from($('.value__icon', v), { scale: 0.5, autoAlpha: 0, duration: 0.9, ease: 'expo.out' }, '<');
+    whenSeen(v, (animate) => (animate ? tl.play() : tl.progress(1)));
   });
 
   // carimbo da história
   gsap.to('.stamp', { rotate: 90, ease: 'none', scrollTrigger: { trigger: '.story', start: 'top bottom', end: 'bottom top', scrub: true } });
 
-  // Fran: persiana da janela abre a foto
-  gsap.timeline({ scrollTrigger: { trigger: '.person--fran .window', start: 'top 80%', once: true } })
-    .to('.window__shade', { yPercent: -101, duration: 1.4, ease: 'power3.inOut' })
-    .from('.window__pane img', { scale: 1.2, duration: 1.8, ease: 'expo.out' }, '<0.2');
+  // Fran: persiana da janela abre a foto. A persiana só fecha aqui, pronta para abrir;
+  // se a página abrir já depois da foto, ela aparece aberta direto.
+  const franWindow = $('.person--fran .window');
+  const shade = franWindow && $('.window__shade', franWindow);
+  if (shade) {
+    shade.classList.add('is-closed');
+    whenSeen(franWindow, (animate) => {
+      if (!animate) { shade.classList.remove('is-closed'); return; }
+      gsap.timeline({ onComplete: () => shade.classList.remove('is-closed') })
+        .to(shade, { yPercent: -101, duration: 1.4, ease: 'power3.inOut' })
+        .from($('.window__pane img', franWindow), { scale: 1.2, duration: 1.8, ease: 'expo.out' }, '<0.2');
+    });
+  }
 
   // como funciona: rota de voo (desktop) / trilho vertical (celular). O texto dos passos fica sempre visível.
   const wps = $$('.wp');

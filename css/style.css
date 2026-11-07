@@ -435,7 +435,7 @@ details[open] > summary i { transform: rotate(45deg); opacity: 1; }
 .window__pane { position: relative; aspect-ratio: 499 / 560; border-radius: 44% / 32%; overflow: hidden; background: #3e3e41; }
 .window__pane img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
 .window__shade { position: absolute; inset: 0; display: none; background: linear-gradient(180deg, #e3ebed 0%, #cad7db 100%); }
-.js .window__shade { display: block; }
+.window__shade.is-closed { display: block; } /* só o JS fecha a persiana, e só quando vai abri-la */
 .window__shade span { position: absolute; left: 50%; bottom: 7%; width: 26%; height: 7px; transform: translateX(-50%); border-radius: 99px; background: rgba(4, 32, 52, .22); }
 
 .monogram { display: grid; place-items: center; width: clamp(120px, 11vw, 160px); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(89, 183, 192, .4); background: radial-gradient(circle at 30% 25%, rgba(89, 183, 192, .25), rgba(4, 32, 52, 0) 70%), var(--navy); }
