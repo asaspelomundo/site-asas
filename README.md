@@ -29,7 +29,8 @@ As fotos ficam no próprio site. Só as fontes (Google Fonts) e as bibliotecas d
 - **Botão "Pedir orçamento":** na abertura e no bloco de contato, ao lado do WhatsApp. Leva ao formulário do sistema, `https://www.asaspelomundo.net/solicitar?utm_source=site`, na mesma aba. Os botões de WhatsApp continuam iguais.
 - **Revisão:** o vermelho de destaque foi de `#ef4444` para `#f66a6a`, para ter contraste suficiente sobre o azul. Os títulos do rodapé passaram de `h4` para `h2`, com o mesmo visual.
 - **Política de privacidade:** hospedagem na Hostinger, sem Unsplash e com o formulário de orçamento. Data de 07/11/2026.
-- CSS em `?v=7` e JS em `?v=4`.
+- **Equipe (pedido da Fran):** os cartões da Fran e da Maria ficam um embaixo do outro, com a foto maior à esquerda. O link da trajetória, o Instagram e o LinkedIn da Fran, e o WhatsApp da Maria, ficam embaixo da foto.
+- CSS em `?v=8` e JS em `?v=4`.
 
 ## Configurações rápidas
 

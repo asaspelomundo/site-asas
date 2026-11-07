@@ -409,14 +409,19 @@ details[open] > summary i { transform: rotate(45deg); opacity: 1; }
 .stamp__est { font: italic 400 12px var(--font-serif); fill: currentColor; }
 .stamp__year { font: 600 20px var(--font-head); fill: currentColor; letter-spacing: .04em; }
 
-.team { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(1.2rem, 2.5vw, 2rem); margin-top: clamp(4rem, 8vw, 6rem); }
-.person { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(1.5rem, 3vw, 2.5rem); align-items: center; padding: clamp(1.4rem, 3vw, 2.4rem); border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--navy-raise); }
-.person--maria { grid-template-columns: auto 1fr; align-content: center; }
+/* um cartão por linha: foto grande à esquerda, com os links embaixo, e o texto à direita */
+.team { display: grid; grid-template-columns: 1fr; gap: clamp(1.2rem, 2.5vw, 2rem); max-width: calc(1120px + var(--gutter) * 2); margin-top: clamp(4rem, 8vw, 6rem); }
+/* foto (com os links embaixo) à esquerda e texto à direita */
+.person { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(1.5rem, 3vw, 2.5rem); align-items: center; padding: clamp(1.4rem, 3vw, 2.4rem); border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--navy-raise); }
+.person--maria .link-arrow { white-space: nowrap; }
+.person__media { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; min-width: 0; }
+.person__media .window { width: 100%; max-width: 360px; }
+.person__links { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+.person__links .link-arrow { font-size: .86rem; }
 .person__role { margin: 0 0 .9rem; font-size: .74rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--turq); }
 .person__title { margin-bottom: 1.2rem; font: 600 clamp(1.35rem, 2vw, 1.75rem)/1.2 var(--font-head); letter-spacing: -.02em; }
 .person__text p { font-size: .98rem; }
-.person__text .link-arrow { margin-top: .4rem; }
-.person__social { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin-top: 1.4rem; }
+.person__social { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 1.4rem; }
 .person__social a { display: inline-flex; align-items: center; gap: .5rem; font-size: .88rem; color: var(--text); text-decoration: none; transition: color .3s ease; }
 .person__social a:hover { color: #fff; }
 .person__social svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -429,8 +434,8 @@ details[open] > summary i { transform: rotate(45deg); opacity: 1; }
 .js .window__shade { display: block; }
 .window__shade span { position: absolute; left: 50%; bottom: 7%; width: 26%; height: 7px; transform: translateX(-50%); border-radius: 99px; background: rgba(4, 32, 52, .22); }
 
-.monogram { display: grid; place-items: center; width: clamp(96px, 10vw, 128px); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(89, 183, 192, .4); background: radial-gradient(circle at 30% 25%, rgba(89, 183, 192, .25), rgba(4, 32, 52, 0) 70%), var(--navy); }
-.monogram span { font: italic 500 clamp(1.8rem, 2.6vw, 2.4rem)/1 var(--font-serif); color: var(--gold); }
+.monogram { display: grid; place-items: center; width: clamp(150px, 15vw, 200px); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(89, 183, 192, .4); background: radial-gradient(circle at 30% 25%, rgba(89, 183, 192, .25), rgba(4, 32, 52, 0) 70%), var(--navy); }
+.monogram span { font: italic 500 clamp(2.6rem, 3.6vw, 3.4rem)/1 var(--font-serif); color: var(--gold); }
 
 /* ==========================================================================
    9. PONTE PARA A FRAN
@@ -615,7 +620,6 @@ html:not(.js) .wa-float, .wa-float.is-visible { transform: scale(1); }
 @media (max-width: 1180px) {
   .svc, .svc:nth-child(2), .svc:nth-child(3) { grid-column: span 6; }
   .svc--wide { grid-column: span 12; }
-  .team { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 1023px) {
@@ -664,7 +668,7 @@ html:not(.js) .wa-float, .wa-float.is-visible { transform: scale(1); }
   .facts-row li, .facts-row li + li { padding: .9rem 0; border-left: 0; border-bottom: 1px solid var(--line); }
 
   .person, .person--maria { grid-template-columns: 1fr; }
-  .person__media { max-width: 260px; }
+  .person__media { width: 100%; max-width: 340px; margin-inline: auto; }
 
   .value { grid-template-columns: 2.4rem 1fr auto; gap: .4rem 1rem; }
   .value__word { grid-column: 2; font-size: clamp(2rem, 9vw, 2.6rem); }
