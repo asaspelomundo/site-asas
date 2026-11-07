@@ -11,7 +11,7 @@
   const WA_NUMBER = '5511915978283';
   // Página da curadoria de milhas da Fran. Trocar aqui quando o endereço específico for definido;
   // todos os botões "Conheça a curadoria da Fran" usam este mesmo valor.
-  const CURADORIA_URL = 'https://francarrillo.com.br/';
+  const CURADORIA_URL = 'https://www.francarrillo.com.br/';
 
   // Mensagem inicial de cada botão (identifica o interesse de origem para a Maria)
   const WA_MESSAGES = {
