@@ -39,7 +39,8 @@ As fotos ficam no próprio site. Só as fontes (Google Fonts) e as bibliotecas d
 - As condições e a pergunta do FAQ sobre o assunto passaram a falar em "abatimento" em vez de "crédito".
 - **Animações de entrada:** cada elemento anima quando aparece na tela. O que já ficou acima da tela aparece pronto. Antes, quem voltava do formulário de orçamento ou recarregava a página no meio via a foto da Fran coberta e títulos faltando.
 - **Foto da Maria Fernanda** no lugar do monograma "MF", na mesma moldura da foto da Fran (`assets/maria-fernanda.webp`, 560×629, sem metadados). No computador ela fica um pouco menor que a da Fran; no celular, as duas têm o mesmo tamanho.
-- CSS em `?v=13` e JS em `?v=7`.
+- **Contato:** no cartão do WhatsApp, o círculo ao lado de "Atendimento com Maria Fernanda" mostra a asa da logo (branca, fundo transparente) no lugar de "MF". O arquivo `assets/logo-asa-120.webp` foi recortado de `logo-mark-white.png`, só com a asa, sem o texto e sem o círculo.
+- CSS em `?v=14` e JS em `?v=7`.
 
 ## Configurações rápidas
 
