@@ -417,12 +417,13 @@ details[open] > summary i { transform: rotate(45deg); opacity: 1; }
 .team { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(1.2rem, 2.5vw, 2rem); margin-top: clamp(4rem, 8vw, 6rem); }
 /* foto (com os links embaixo) à esquerda e texto à direita */
 .person { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 3vw, 2.5rem); align-items: center; padding: clamp(1.4rem, 3vw, 2.4rem); border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--navy-raise); }
-/* coluna do monograma estreita: o link quebra em "WhatsApp" + número, e o texto fica com espaço */
-.person--maria { grid-template-columns: fit-content(160px) 1fr; }
+/* cartão da Maria: foto um pouco menor que a da Fran; o link quebra em "WhatsApp" + número */
+.person--maria { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
 .nobr { white-space: nowrap; }
 .link-arrow .nobr { padding-bottom: 0; background: none; } /* o sublinhado já vem do link */
 .person__media { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; min-width: 0; }
 .person__media .window { width: 100%; max-width: 360px; }
+.person--maria .person__media .window { max-width: 280px; }
 .person__links { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
 .person__links .link-arrow { font-size: .86rem; }
 .person__links .person__social { gap: .5rem 1rem; }
@@ -442,9 +443,6 @@ details[open] > summary i { transform: rotate(45deg); opacity: 1; }
 .window__shade { position: absolute; inset: 0; display: none; background: linear-gradient(180deg, #e3ebed 0%, #cad7db 100%); }
 .window__shade.is-closed { display: block; } /* só o JS fecha a persiana, e só quando vai abri-la */
 .window__shade span { position: absolute; left: 50%; bottom: 7%; width: 26%; height: 7px; transform: translateX(-50%); border-radius: 99px; background: rgba(4, 32, 52, .22); }
-
-.monogram { display: grid; place-items: center; width: clamp(120px, 11vw, 160px); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(89, 183, 192, .4); background: radial-gradient(circle at 30% 25%, rgba(89, 183, 192, .25), rgba(4, 32, 52, 0) 70%), var(--navy); }
-.monogram span { font: italic 500 clamp(2.1rem, 2.9vw, 2.8rem)/1 var(--font-serif); color: var(--gold); }
 
 /* ==========================================================================
    9. PONTE PARA A FRAN
@@ -630,6 +628,7 @@ html:not(.js) .wa-float, .wa-float.is-visible { transform: scale(1); }
   .svc, .svc:nth-child(2), .svc:nth-child(3) { grid-column: span 6; }
   .svc--wide { grid-column: span 12; }
   .team { grid-template-columns: 1fr; }
+  .person--maria { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } /* um cartão embaixo do outro: textos alinhados */
 }
 
 @media (max-width: 1023px) {

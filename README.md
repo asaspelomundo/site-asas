@@ -15,7 +15,7 @@ Site estático: HTML, CSS e JavaScript, sem etapa de build.
 - `robots.txt` e `sitemap.xml` — para os buscadores
 - `css/style.css` — estilos, paleta e tipografia da marca
 - `js/main.js` — interações e animações (GSAP + Lenis), respeitando "reduzir movimento"
-- `assets/` — logo, favicon, foto da fundadora e `og-image.jpg` (imagem de compartilhamento, 1200×630)
+- `assets/` — logo, favicon, fotos da Fran e da Maria e `og-image.jpg` (imagem de compartilhamento, 1200×630)
 - `assets/fotos/` — fotos das seções em WebP
 
 As fotos ficam no próprio site. Só as fontes (Google Fonts) e as bibliotecas de animação (cdnjs e jsDelivr) vêm de fora.
@@ -37,7 +37,8 @@ As fotos ficam no próprio site. Só as fontes (Google Fonts) e as bibliotecas d
 - **Textos dos serviços revisados**, sem mudar valores, prazos nem o que cada serviço inclui. O rótulo "Prazo após dados e contratação" virou "Prazo", e a regra de contagem passou para o aviso.
 - As condições e a pergunta do FAQ sobre o assunto passaram a falar em "abatimento" em vez de "crédito".
 - **Animações de entrada:** cada elemento anima quando aparece na tela. O que já ficou acima da tela aparece pronto. Antes, quem voltava do formulário de orçamento ou recarregava a página no meio via a foto da Fran coberta e títulos faltando.
-- CSS em `?v=11` e JS em `?v=6`.
+- **Foto da Maria Fernanda** no lugar do monograma "MF", na mesma moldura da foto da Fran (`assets/maria-fernanda.webp`, 560×629, sem metadados). No computador ela fica um pouco menor que a da Fran; no celular, as duas têm o mesmo tamanho.
+- CSS em `?v=12` e JS em `?v=6`.
 
 ## Configurações rápidas
 
@@ -152,7 +153,6 @@ Dá para publicar sem estes itens e trocar depois:
 
 - **Fotos finais:**
   - a foto da abertura (hoje é uma foto de banco de imagens; a imagem de compartilhamento usa a mesma foto e precisa ser refeita junto);
-  - a foto autorizada da Maria Fernanda (hoje aparece o monograma "MF");
   - fotos autorizadas da Fran, se ela quiser trocar a atual.
 - **Depoimentos:** prints reais e autorizações (o bloco está pronto e oculto).
 - **Logomarca:** arquivos oficiais.
