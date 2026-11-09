@@ -34,17 +34,19 @@ As fotos ficam no próprio site. Só as fontes (Google Fonts) e as bibliotecas d
 ## O que mudou em 09/11/2026
 
 - **Planejamento e investimento:** antes dos valores, um aviso em destaque diz que o valor do planejamento é abatido integralmente quando a viagem é reservada com a Asas, com o link "Ver condições", que abre a caixa de condições (`#credito`).
-- **Textos dos serviços revisados**, sem mudar valores, prazos nem o que cada serviço inclui. O rótulo "Prazo após dados e contratação" virou "Prazo", e a regra de contagem passou para o aviso.
+- **Textos dos serviços:** a descrição de cada cartão ("Entrega") é o texto enviado pela Fran em 09/11. O rótulo "Prazo após dados e contratação" virou "Prazo", e a regra de contagem passou para o aviso.
+- **Cartões clicáveis:** cada cartão de serviço abre o WhatsApp da Maria com o nome e o valor do serviço, e mostra "Quero este serviço" no pé. Antes, o clique só marcava o cartão e mudava o botão amarelo lá embaixo, o que deixava a dúvida se era para clicar. O botão amarelo "Conte como você quer viajar" continua, com a mensagem geral de planejamento.
 - As condições e a pergunta do FAQ sobre o assunto passaram a falar em "abatimento" em vez de "crédito".
 - **Animações de entrada:** cada elemento anima quando aparece na tela. O que já ficou acima da tela aparece pronto. Antes, quem voltava do formulário de orçamento ou recarregava a página no meio via a foto da Fran coberta e títulos faltando.
 - **Foto da Maria Fernanda** no lugar do monograma "MF", na mesma moldura da foto da Fran (`assets/maria-fernanda.webp`, 560×629, sem metadados). No computador ela fica um pouco menor que a da Fran; no celular, as duas têm o mesmo tamanho.
-- CSS em `?v=12` e JS em `?v=6`.
+- CSS em `?v=13` e JS em `?v=7`.
 
 ## Configurações rápidas
 
 - **WhatsApp comercial e mensagens de cada botão:** topo de `js/main.js` (`WA_NUMBER` e `WA_MESSAGES`).
 - **Link da curadoria de milhas da Fran:** `CURADORIA_URL` no topo de `js/main.js`. Todos os botões "Conheça a curadoria da Fran" usam esse valor.
 - **Botão "Pedir orçamento":** procure por `solicitar?utm_source=site` no `index.html` (2 lugares). Para o formulário em inglês ou espanhol, acrescente `&lang=en` ou `&lang=es`.
+- **Serviços e valores:** cartões `.plan` no `index.html` (procure "Cotação expressa"). A mensagem do WhatsApp de cada cartão vem do atributo `data-plan` (nome e valor); ao mudar um valor, mude também o `data-plan`.
 - **Depoimentos:** o bloco `#depoimentos` está preparado e oculto (`hidden`) no `index.html`. Publicar somente relatos reais, com autorização, seguindo o modelo comentado no próprio bloco.
 - Ao alterar `css/style.css` ou `js/main.js`, aumente o número de versão (`?v=`) nas referências do HTML (`index.html`, `politica-de-privacidade.html` e `404.html`) para evitar cache antigo.
 - **Trocar uma foto:** gere um WebP com o mesmo nome em `assets/fotos/` (ex.: `cwebp -q 76 foto.jpg -o assets/fotos/abertura-1920.webp`). O navegador guarda imagens por até 30 dias; para a troca aparecer na hora para todos, use um nome novo e atualize o `index.html`.

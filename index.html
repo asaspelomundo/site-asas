@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/fotos/abertura-1920.webp" imagesrcset="assets/fotos/abertura-900.webp 900w, assets/fotos/abertura-1400.webp 1400w, assets/fotos/abertura-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
-  <link rel="stylesheet" href="css/style.css?v=12">
+  <link rel="stylesheet" href="css/style.css?v=13">
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -383,47 +383,54 @@
           <p>Os valores abaixo são honorários do planejamento. Passagens, hospedagens, passeios e demais serviços são orçados à parte. Os prazos contam a partir do envio dos seus dados e da contratação.</p>
         </div>
 
-        <div class="plans" role="group" aria-label="Serviços de planejamento">
-          <button class="plan" type="button" aria-pressed="false" data-plan="Cotação expressa">
+        <!-- Cada cartão abre o WhatsApp da Maria com o nome do serviço (mensagem montada no js/main.js a partir de data-plan). -->
+        <div class="plans">
+          <a class="plan" data-plan="Cotação expressa" target="_blank" rel="noopener" href="https://wa.me/5511915978283">
             <span class="plan__name">Cotação expressa</span>
             <span class="plan__price">Grátis</span>
-            <span class="plan__row"><span class="plan__lbl">Entrega</span>Até duas ofertas prontas, sem pesquisa personalizada.</span>
+            <span class="plan__row"><span class="plan__lbl">Entrega</span>Selecionamos até duas ofertas disponíveis de acordo com o perfil da sua viagem.</span>
             <span class="plan__row"><span class="plan__lbl">Prazo</span>Até 1 dia útil.</span>
-          </button>
-          <button class="plan" type="button" aria-pressed="false" data-plan="Escolha do destino (R$ 197)">
+            <span class="plan__go">Quero este serviço <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </a>
+          <a class="plan" data-plan="Escolha do destino (R$ 197)" target="_blank" rel="noopener" href="https://wa.me/5511915978283">
             <span class="plan__name">Escolha do destino</span>
             <span class="plan__price">R$ 197</span>
-            <span class="plan__row"><span class="plan__lbl">Entrega</span>Reunião de até 30 minutos, comparação entre dois destinos e recomendação por escrito.</span>
+            <span class="plan__row"><span class="plan__lbl">Entrega</span>Em uma conversa de até 30 minutos, comparamos dois destinos e orientamos sua escolha. O serviço já inclui um roteiro para o destino escolhido, com experiências alinhadas às suas preferências.</span>
             <span class="plan__row"><span class="plan__lbl">Prazo</span>Até 2 dias úteis.</span>
-          </button>
-          <button class="plan" type="button" aria-pressed="false" data-plan="Revisão de viagem (R$ 247)">
+            <span class="plan__go">Quero este serviço <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </a>
+          <a class="plan" data-plan="Revisão de viagem (R$ 247)" target="_blank" rel="noopener" href="https://wa.me/5511915978283">
             <span class="plan__name">Revisão de viagem</span>
             <span class="plan__price">R$ 247</span>
-            <span class="plan__row"><span class="plan__lbl">Entrega</span>Até uma hora de análise do roteiro que você já tem, com devolutiva objetiva.</span>
+            <span class="plan__row"><span class="plan__lbl">Entrega</span>Dedicamos até uma hora à análise do seu roteiro e indicamos ajustes para aproveitar o tempo em cada destino e simplificar os deslocamentos.</span>
             <span class="plan__row"><span class="plan__lbl">Prazo</span>Até 3 dias úteis.</span>
-          </button>
-          <button class="plan" type="button" aria-pressed="false" data-plan="Planejamento nacional (R$ 397)">
+            <span class="plan__go">Quero este serviço <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </a>
+          <a class="plan" data-plan="Planejamento nacional (R$ 397)" target="_blank" rel="noopener" href="https://wa.me/5511915978283">
             <span class="plan__name">Planejamento nacional</span>
             <span class="plan__price">R$ 397</span>
-            <span class="plan__row"><span class="plan__lbl">Entrega</span>Viagem de até sete dias e duas cidades, com briefing, até duas alternativas, experiências e uma rodada de revisão.</span>
+            <span class="plan__row"><span class="plan__lbl">Entrega</span>A partir da conversa inicial, desenhamos duas propostas com experiências selecionadas para você. Inclui assessoria, roteiro para a opção escolhida e uma rodada de revisão. Para viagens de até 7 dias e 2 cidades.</span>
             <span class="plan__row"><span class="plan__lbl">Prazo</span>Até 4 dias úteis.</span>
-          </button>
-          <button class="plan" type="button" aria-pressed="false" data-plan="Planejamento internacional (R$ 697)">
+            <span class="plan__go">Quero este serviço <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </a>
+          <a class="plan" data-plan="Planejamento internacional (R$ 697)" target="_blank" rel="noopener" href="https://wa.me/5511915978283">
             <span class="plan__name">Planejamento internacional</span>
             <span class="plan__price">R$ 697</span>
-            <span class="plan__row"><span class="plan__lbl">Entrega</span>Viagem de até dez dias em um país, com até duas alternativas, logística e uma rodada de revisão.</span>
+            <span class="plan__row"><span class="plan__lbl">Entrega</span>Desenhamos duas propostas e orientamos as escolhas de cada etapa da viagem. Inclui assessoria, roteiro com deslocamentos planejados e uma rodada de revisão. Para viagens de até 10 dias em um país.</span>
             <span class="plan__row"><span class="plan__lbl">Prazo</span>Até 5 dias úteis.</span>
-          </button>
-          <button class="plan" type="button" aria-pressed="false" data-plan="Premium e grupos (a partir de R$ 1.297)">
+            <span class="plan__go">Quero este serviço <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </a>
+          <a class="plan" data-plan="Premium e grupos (a partir de R$ 1.297)" target="_blank" rel="noopener" href="https://wa.me/5511915978283">
             <span class="plan__name">Premium e grupos</span>
             <span class="plan__price"><small>A partir de</small> R$ 1.297</span>
-            <span class="plan__row"><span class="plan__lbl">Entrega</span>Escopo sob medida, com imersão de planejamento, curadoria e logística. Inclui uma rodada de revisão, salvo outra condição combinada por escrito.</span>
+            <span class="plan__row"><span class="plan__lbl">Entrega</span>Criamos um roteiro sob medida para o ritmo dos viajantes, com assessoria próxima, experiências selecionadas e logística detalhada. Inclui uma rodada de revisão, salvo acordo por escrito.</span>
             <span class="plan__row"><span class="plan__lbl">Prazo</span>De 7 a 10 dias úteis, ou o prazo combinado por escrito.</span>
-          </button>
+            <span class="plan__go">Quero este serviço <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </a>
         </div>
 
         <div class="pricing__cta">
-          <a class="btn btn--gold magnetic" data-wa="planejamento" data-plan-cta target="_blank" rel="noopener" href="https://wa.me/5511915978283">
+          <a class="btn btn--gold magnetic" data-wa="planejamento" target="_blank" rel="noopener" href="https://wa.me/5511915978283">
             <span>Conte como você quer viajar</span>
             <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -786,6 +793,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/MotionPathPlugin.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
-  <script src="js/main.js?v=6" defer></script>
+  <script src="js/main.js?v=7" defer></script>
 </body>
 </html>

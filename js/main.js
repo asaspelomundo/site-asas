@@ -121,16 +121,9 @@
     });
   });
 
-  /* ---------- planejamento: escolher um serviço preenche a mensagem do WhatsApp ---------- */
-  const plans = $$('.plan');
-  const planCta = $('[data-plan-cta]');
-  plans.forEach((p) => {
-    p.addEventListener('click', () => {
-      const wasOn = p.getAttribute('aria-pressed') === 'true';
-      plans.forEach((o) => o.setAttribute('aria-pressed', 'false'));
-      p.setAttribute('aria-pressed', String(!wasOn));
-      planCta.href = waLink(wasOn ? WA_MESSAGES.planejamento : `Olá, Maria! Vim pelo site da Asas e tenho interesse no serviço: ${p.dataset.plan}.`);
-    });
+  /* ---------- planejamento: cada cartão abre o WhatsApp com o nome do serviço ---------- */
+  $$('.plan[data-plan]').forEach((p) => {
+    p.href = waLink(`Olá, Maria! Vim pelo site da Asas e tenho interesse no serviço: ${p.dataset.plan}.`);
   });
 
   /* ---------- abertura suave de <details> (condições e FAQ) ---------- */
