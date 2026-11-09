@@ -30,7 +30,14 @@ As fotos ficam no próprio site. Só as fontes (Google Fonts) e as bibliotecas d
 - **Revisão:** o vermelho de destaque foi de `#ef4444` para `#f66a6a`, para ter contraste suficiente sobre o azul. Os títulos do rodapé passaram de `h4` para `h2`, com o mesmo visual.
 - **Política de privacidade:** hospedagem na Hostinger, sem Unsplash e com o formulário de orçamento. Data de 07/11/2026.
 - **Equipe (pedido da Fran):** os cartões continuam lado a lado. O link da trajetória, o Instagram e o LinkedIn da Fran, e o WhatsApp da Maria, passaram para baixo da foto. Com isso a foto ficou um pouco maior e o cartão mais baixo.
-- CSS em `?v=9` e JS em `?v=4`.
+
+## O que mudou em 09/11/2026
+
+- **Planejamento e investimento:** antes dos valores, um aviso em destaque diz que o valor do planejamento é abatido integralmente quando a viagem é reservada com a Asas, com o link "Ver condições", que abre a caixa de condições (`#credito`).
+- **Textos dos serviços revisados**, sem mudar valores, prazos nem o que cada serviço inclui. O rótulo "Prazo após dados e contratação" virou "Prazo", e a regra de contagem passou para o aviso.
+- As condições e a pergunta do FAQ sobre o assunto passaram a falar em "abatimento" em vez de "crédito".
+- **Animações de entrada:** cada elemento anima quando aparece na tela. O que já ficou acima da tela aparece pronto. Antes, quem voltava do formulário de orçamento ou recarregava a página no meio via a foto da Fran coberta e títulos faltando.
+- CSS em `?v=11` e JS em `?v=6`.
 
 ## Configurações rápidas
 

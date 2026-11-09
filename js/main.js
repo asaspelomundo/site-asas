@@ -79,6 +79,7 @@
       if (!target) return;
       e.preventDefault();
       setMenu(false);
+      if (target.tagName === 'DETAILS') target.open = true;
       if (lenis) lenis.scrollTo(target, { offset: id === '#inicio' ? 0 : -70, duration: 1.3 });
       else target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
       history.replaceState(null, '', id);

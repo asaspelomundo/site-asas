@@ -328,9 +328,14 @@ button { font: inherit; color: inherit; }
   border-left: 3px solid var(--gold);
   background: #fff;
   border-radius: 0 12px 12px 0;
-  font-size: .98rem;
-  color: var(--navy);
+  font-size: .94rem;
+  color: var(--ink);
 }
+.pricing__note p { margin: 0; }
+.pricing__note p + p { margin-top: .7rem; }
+.pricing__credit { font-size: 1.04rem; color: var(--navy); }
+.pricing__credit strong { font-weight: 600; }
+.pricing__credit a { color: var(--teal-ink); font-weight: 600; text-underline-offset: 3px; white-space: nowrap; }
 .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
 .plan {
   position: relative;
