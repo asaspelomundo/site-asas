@@ -15,7 +15,7 @@ Site estático: HTML, CSS e JavaScript, sem etapa de build.
 - `robots.txt` e `sitemap.xml` — para os buscadores
 - `css/style.css` — estilos, paleta e tipografia da marca
 - `js/main.js` — interações e animações (GSAP + Lenis), respeitando "reduzir movimento"
-- `assets/` — logo, favicon, fotos da Fran e da Maria e `og-image.jpg` (imagem de compartilhamento, 1200×630)
+- `assets/` — logo, ícones (`favicon.png` e `apple-touch-icon.png`), fotos da Fran e da Maria e `og-image.jpg` (imagem de compartilhamento, 1200×630)
 - `assets/fotos/` — fotos das seções em WebP
 
 As fotos ficam no próprio site. Só as fontes (Google Fonts) e as bibliotecas de animação (cdnjs e jsDelivr) vêm de fora.
@@ -40,6 +40,8 @@ As fotos ficam no próprio site. Só as fontes (Google Fonts) e as bibliotecas d
 - **Animações de entrada:** cada elemento anima quando aparece na tela. O que já ficou acima da tela aparece pronto. Antes, quem voltava do formulário de orçamento ou recarregava a página no meio via a foto da Fran coberta e títulos faltando.
 - **Foto da Maria Fernanda** no lugar do monograma "MF", na mesma moldura da foto da Fran (`assets/maria-fernanda.webp`, 560×629, sem metadados). No computador ela fica um pouco menor que a da Fran; no celular, as duas têm o mesmo tamanho.
 - **Contato:** no cartão do WhatsApp, o círculo ao lado de "Atendimento com Maria Fernanda" mostra a asa da logo (branca, fundo transparente) no lugar de "MF". O arquivo `assets/logo-asa-120.webp` foi recortado de `logo-mark-white.png`, só com a asa, sem o texto e sem o círculo.
+- **Azul da marca no ícone e no compartilhamento:** a pedido da Fran, o ícone da aba (`favicon.png`, agora `?v=2`), o ícone do iPhone (`apple-touch-icon.png`, novo) e a imagem de compartilhamento (`og-image.jpg`) usam o degradê do logotipo oficial: de `#69b7c6` (embaixo, à esquerda) a `#406d84` (em cima, à direita), com a logo em branco. A imagem de compartilhamento não usa mais a foto da abertura.
+- **Prévia no WhatsApp antes da troca de domínio:** a `og:image` aponta para `https://www.asaspelomundo.com/...`, que ainda é o site antigo (responde 404). Por isso, quem compartilha o link `site-asas.vercel.app` vê o ícone azul na prévia, e não a imagem grande. A imagem grande aparece quando o domínio passar a mostrar o site novo.
 - CSS em `?v=14` e JS em `?v=7`.
 
 ## Configurações rápidas
@@ -155,7 +157,7 @@ No celular, o que mais pesa no desempenho é a folha de fontes do Google, que tr
 Dá para publicar sem estes itens e trocar depois:
 
 - **Fotos finais:**
-  - a foto da abertura (hoje é uma foto de banco de imagens; a imagem de compartilhamento usa a mesma foto e precisa ser refeita junto);
+  - a foto da abertura (hoje é uma foto de banco de imagens);
   - fotos autorizadas da Fran, se ela quiser trocar a atual.
 - **Depoimentos:** prints reais e autorizações (o bloco está pronto e oculto).
 - **Logomarca:** arquivos oficiais.
